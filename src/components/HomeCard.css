@@ -1,0 +1,48 @@
+.homecard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: white;
+  min-width: 160px;
+  min-height: 120px;
+  margin: 6px;
+}
+
+.homecard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.homecard-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.homecard-content {
+  text-align: left;
+}
+
+.homecard-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.homecard-desc {
+  font-size: 0.85rem;
+  color: #c9c9c9;
+}
+
+/* COLORS */
+.bg-yellow {
+  background-color: #ff742f;
+}
+
+.bg-blue {
+  background-color: #0d78f8;
+}

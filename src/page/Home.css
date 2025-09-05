@@ -1,0 +1,146 @@
+/* ============================= */
+/* Home Page Styles              */
+/* ============================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.home-container {
+  background-color: #1c1f2e; /* darkBlue1 */
+  min-height: 100px;
+  color: #94a3b8; /* slate-400 */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .home-wrapper {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+/* Left panel */
+.home-left {
+  padding: 12px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card groups */
+.card-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .card-group {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Made with love box */
+.made-with {
+  background-color: #0d78f8; /* blue */
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .made-with {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+}
+
+.made-with a {
+  color: #ff742f; /* yellow/orange link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.made-with a:hover {
+  text-decoration: underline;
+}
+
+/* Right panel */
+.home-right {
+  flex-grow: 1;
+  padding: 12px;
+  border-left: 1px solid #2e323e; /* lightGray */
+}
+
+@media (min-width: 768px) {
+  .home-right {
+    padding: 16px;
+    height: 100vh;
+  }
+}
+
+/* Clock box */
+.clock-box {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  background-color: #64748b; /* slate-500 */
+  border-radius: 12px;
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .clock-box {
+    height: 200px;
+    border-radius: 16px;
+    padding: 16px;
+  }
+}
+
+/* Clock text */
+.clock-time {
+  font-size: 32px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .clock-time {
+    font-size: 72px;
+  }
+}
+
+.clock-date {
+  color: #cbd5e1; /* slate-300 */
+  font-weight: 300;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .clock-date {
+    font-size: 16px;
+  }
+}
+.card-link{
+    text-decoration: none;
+}

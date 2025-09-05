@@ -1,0 +1,103 @@
+/* Sidebar container */
+.sidebar {
+  background-color: #1c1f2e; /* darkBlue1 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  width: 70px;
+  height: 100vh;
+  border-right: 1px solid #242736; /* lightGray */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.sidebar-logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sidebar-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Menu */
+.sidebar-menu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 24px 0;
+  gap: 24px;
+}
+
+/* Menu item */
+.sidebar-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: #cbd5e1; /* slate-300 */
+  background-color: #242736; /* lightGray */
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  background-color: #2e323e; /* gray */
+  color: #ffffff;
+}
+
+.sidebar-link.active {
+  background-color: #0d78f8; /* blue */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(13, 120, 248, 0.5);
+}
+
+/* Tooltip */
+.sidebar-link span {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2e323e;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-link:hover span {
+  opacity: 1;
+}
+
+/* Settings button */
+.sidebar-settings {
+  background-color: #242736;
+  border: 1px solid #2e323e;
+  padding: 12px;
+  border-radius: 12px;
+  color: #94a3b8; /* slate-400 */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-settings:hover {
+  background-color: #2e323e;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
