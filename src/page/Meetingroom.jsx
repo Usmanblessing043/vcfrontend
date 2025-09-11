@@ -688,11 +688,12 @@ const { roomId } = useParams();
             {/* Local user */}
             {video === true ? (
               <video
-                className='meetUserVideo'
-                ref={localVideoref}
-                autoPlay
-                muted
-              ></video>
+  className="meetUserVideo"
+  ref={localVideoref}
+  autoPlay
+  playsInline
+  muted
+></video>
             ) : (
               <div className="videoAvatar">
                 {username.charAt(0).toUpperCase()}
@@ -703,15 +704,17 @@ const { roomId } = useParams();
             {videos.map((videoObj) =>
               videoObj.stream ? (
                 <video
-                  key={videoObj.socketId}
-                  data-socket={videoObj.socketId}
-                  ref={(ref) => {
-                    if (ref && videoObj.stream) {
-                      ref.srcObject = videoObj.stream;
-                    }
-                  }}
-                  autoPlay
-                ></video>
+  key={videoObj.socketId}
+  data-socket={videoObj.socketId}
+  ref={(ref) => {
+    if (ref && videoObj.stream) {
+      ref.srcObject = videoObj.stream;
+    }
+  }}
+  autoPlay
+  playsInline
+></video>
+
               ) : (
                 <div key={videoObj.socketId} className="videoAvatar">
                   {/* Fallback: you might also store usernames of remote peers */}
