@@ -1,11 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+
 import { AiOutlineLogout as LogOutIcon } from "react-icons/ai";
 import "./Header.css"; // Import external CSS
 
-const Header = () => {
-  const { user, login, logout } = useAuth();
+const Header = ({clas, second, first}) => {
+   const navigate = useNavigate()
+    function signup() {
+       navigate('/Signup')
+
+    
+    }
+     function login() {
+       navigate('/Login')
+
+    
+    }
 
   return (
     <div className="header">
@@ -15,18 +27,23 @@ const Header = () => {
       </Link>
 
       {/* Right side */}
-      {user ? (
-        <div className="header-user">
-          <img src={user?.photoURL} alt={user?.displayname} />
-          <button className="header-logout" onClick={logout} title="Logout">
+    
+          
+          {/* <button className="header-logout" title="Logout">
             <LogOutIcon />
-          </button>
-        </div>
-      ) : (
-        <button className="header-login" onClick={login}>
-          Login
-        </button>
-      )}
+          </button> */}
+
+          <div className="but">
+            <Button in ={signup}  text='Sign up' sty={first}></Button>
+          <Button in = {login}  text='Login' sty={second}></Button>
+          <Button  text='Log out' sty={clas}></Button> 
+
+          </div>
+          
+        
+    
+       
+    
     </div>
   );
 };

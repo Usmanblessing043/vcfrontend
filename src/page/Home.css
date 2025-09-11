@@ -144,3 +144,11 @@ html, body {
 .card-link{
     text-decoration: none;
 }
+.red{
+  display: none;
+  /* color: #ff742f; */
+}
+.mar{
+  color: white;
+  font-weight: 700;
+}

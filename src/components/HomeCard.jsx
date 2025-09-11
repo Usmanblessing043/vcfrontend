@@ -1,9 +1,9 @@
 import React from "react";
 import "./HomeCard.css";
 
-const HomeCard = ({ title, desc, icon, bgColor }) => {
+const HomeCard = ({ title, desc, icon, bgColor, cliik }) => {
   return (
-    <div className={`homecard ${bgColor}`}>
+    <div onClick={cliik}  className={`homecard ${bgColor}`}>
       <div className="homecard-icon">{icon}</div>
       <div className="homecard-content">
         <h3 className="homecard-title">{title}</h3>

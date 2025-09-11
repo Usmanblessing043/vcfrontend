@@ -1,0 +1,226 @@
+.meetVideoContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #121212;
+  color: white;
+  overflow: hidden;
+}
+
+/* ==== Chat Section ==== */
+.chatRoom {
+  width: 25%;
+  background: #1e1e1e;
+  border-right: 2px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+}
+
+.chatContainer h1 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.chattingDisplay {
+  flex: 1;
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  overflow-y: auto;
+}
+.videoAvatar {
+ width: 480px;
+  height: 280px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.shar{
+    height: 40px;
+}
+
+
+.chattingArea {
+  display: flex;
+  gap: 10px;
+}
+#mmm{
+    /* background-color: bisque; */
+    height: 35px;
+}
+
+/* ==== Video Section ==== */
+.conferenceView {
+  flex: 1; /* takes 75% */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  position: relative;
+}
+
+.conferenceView video,
+.meetUserVideo {
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  background: black;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==== Control Buttons ==== */
+.buttonContainers {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 30, 0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Square buttons */
+.buttonContainers .MuiIconButton-root {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px !important; /* makes them square */
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.buttonContainers .MuiIconButton-root:hover {
+  background: #3a3a3a;
+}
+
+.buttonContainers svg {
+  font-size: 26px;
+  color: white;
+}.meetVideoContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #121212;
+  color: white;
+  overflow: hidden;
+}
+
+/* ==== Chat Section ==== */
+.chatRoom {
+  width: 25%;
+  background: #1e1e1e;
+  border-right: 2px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+}
+
+.chatContainer h1 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.chattingDisplay {
+  flex: 1;
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  overflow-y: auto;
+}
+
+.chattingArea {
+  display: flex;
+  gap: 10px;
+}
+
+/* ==== Video Section ==== */
+.conferenceView {
+  flex: 1; /* takes 75% */
+  display: flex;
+  flex-wrap: wrap;              /* videos wrap into rows */
+  justify-content: flex-start;  /* start from left */
+  align-content: flex-start;    /* stack from top */
+  gap: 15px;
+  padding: 15px;
+  position: relative;
+  overflow-y: auto;             /* scroll if too many videos */
+}
+
+.conferenceView video,
+.meetUserVideo {
+  flex: 1 1 320px;        /* responsive min width */
+  max-width: 480px;
+  height: 280px;
+  background: black;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==== Control Buttons ==== */
+.buttonContainers {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 30, 0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Square buttons */
+.buttonContainers .MuiIconButton-root {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px !important; /* makes them square */
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.buttonContainers .MuiIconButton-root:hover {
+  background: red;
+}
+
+.buttonContainers svg {
+  font-size: 26px;
+  color: white;
+}
+

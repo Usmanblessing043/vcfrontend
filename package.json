@@ -9,7 +9,9 @@
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.11.0",
     "firebase": "^12.2.1",
+    "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -18,11 +20,13 @@
     "react-qrcode-logo": "^4.0.0",
     "react-router-dom": "^7.8.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.5",
     "simple-peer": "^9.11.1",
     "socket.io-client": "^4.8.1",
     "tailwindcss": "^4.1.13",
     "uuid": "^11.1.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

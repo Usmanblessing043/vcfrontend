@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import HomeCard from "../components/HomeCard";
 import "./Home.css";
+import './Dashboard.css'
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 import { v4 as uuid } from "uuid";
+import axios from "axios";
+
 
 // icons
 import { MdVideoCall as NewCallIcon } from "react-icons/md";
@@ -12,10 +16,33 @@ import { MdAddBox as JoinCallIcon } from "react-icons/md";
 import { BsCalendarDate as CalenderIcon } from "react-icons/bs";
 import { MdScreenShare as ScreenShareIcon } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+const backendUrl = process.env.REACT_APP_VIDEOBACKEND_URL
 const roomId = uuid();
 
-const Home = () => {
+const Dashboard = () => {
+    const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  const users = JSON.parse(localStorage.getItem('current_users'))
+  const name = users.username.toUpperCase()
+
+      useEffect(() => {
+    axios.get(`${backendUrl}/Verify`, {
+      headers: {
+        "Authorization": `bearer ${token}`
+      }
+    }).then((res) => {
+      console.log(res.data.user);
+      localStorage.setItem("current_users", JSON.stringify({ ...res.data.user, password: "" }))
+
+    }).catch((err) => {
+      console.log(err);
+      if (err.response.data.message == "jwt expired") {
+        navigate("/Login")
+      }
+
+    })
+  }, [])
+
   const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December",
@@ -34,6 +61,17 @@ const Home = () => {
     const timerId = setInterval(refreshClock, 1000);
     return () => clearInterval(timerId);
   }, []);
+
+
+  const createroom = async () => {
+    const res = await axios.post(`${backendUrl}/createroom`);
+    navigate(`/meetingroom/${res.data.roomId}`);
+  };
+
+  const joinRoom = () => {
+    const id = prompt("Enter Room ID");
+    navigate(`/meetingroom/${id}`);
+  };
  
 
   return (
@@ -44,7 +82,7 @@ const Home = () => {
     
           <div className="main-wrapper">
             <div className="header-wrapper">
-              <Header clas='red' first="first" second="second"/>
+              <Header clas='redd' first="firstt" second="secondd"/>
             </div>
     
             <div className="page-content">
@@ -62,6 +100,8 @@ const Home = () => {
                 iconBgColor="lightYellows"
                 bgColor="bg-blue"
                 route={`/room/`}
+                cliik={createroom}
+                
 
                 
               />
@@ -71,6 +111,9 @@ const Home = () => {
               desc="via invitation link"
               icon={<JoinCallIcon />}
               bgColor="bg-blue"
+              cliik={joinRoom}
+          
+        
             />
           </div>
 
@@ -99,7 +142,7 @@ const Home = () => {
 
         {/* RIGHT SECTION */}
         <div className="home-right">
-          <div className="mar"><marquee  behavior=""  direction="">Kindly Login or Signup first before you can create meeting or join meeting Thanks........</marquee></div>
+          
           <div className="clock-box">
             <div className="clock-content">
               <p className="clock-time">
@@ -133,4 +176,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;

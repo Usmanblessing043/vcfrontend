@@ -11,29 +11,30 @@ import Sidebar from "./components/Sidebar";
 import Home from "./page/Home";
 import Room from "./page/Room";
 import NotFound from "./page/Notfound";
+import Login from "./page/Login";
+import Signup from "./page/Signup";
+import Dashboard from "./page/Dashboard";
+import Meetingroom from "./page/Meetingroom";
+import { ToastContainer } from "react-toastify";
 
 
 const App = () => {
   return (
-    <div className="app-container">
-      <div className="sidebar-wrapper">
-        <Sidebar />
-      </div>
-
-      <div className="main-wrapper">
-        <div className="header-wrapper">
-          <Header />
-        </div>
-
-        <div className="page-content">
-          <Routes>
+    
+         <div>
+           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/room/:roomID" element={<Room />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signup" element={<Signup/>} />
+            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route path="/Meetingroom/:roomId" element={<Meetingroom/>} />
           </Routes>
-        </div>
-      </div>
-    </div>
+          <ToastContainer></ToastContainer>
+         </div>
+           
+        
   );
 };
 export default App;
