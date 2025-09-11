@@ -370,7 +370,7 @@ const { roomId } = useParams();
           };
 
           // Wait for their video stream
-          connections[socketListId].onaddstream = (event) => {
+          connections[socketListId].ontrack= (event) => {
             console.log("BEFORE:", videoRef.current);
             console.log("FINDING ID: ", socketListId);
 
