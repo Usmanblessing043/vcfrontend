@@ -22,8 +22,8 @@ const roomId = uuid();
 const Dashboard = () => {
     const navigate = useNavigate()
   const token = localStorage.getItem('token')
-  const users = JSON.parse(localStorage.getItem('current_users'))
-  const name = users.username.toUpperCase()
+  // const users = JSON.parse(localStorage.getItem('current_users'))
+  // const name = users.username.toUpperCase()
 
       useEffect(() => {
     axios.get(`${backendUrl}/Verify`, {
