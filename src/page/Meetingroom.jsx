@@ -370,44 +370,72 @@ const { roomId } = useParams();
           };
 
           // Wait for their video stream
-          connections[socketListId].ontrack= (event) => {
-            console.log("BEFORE:", videoRef.current);
-            console.log("FINDING ID: ", socketListId);
+          // connections[socketListId].ontrack= (event) => {
+          //   console.log("BEFORE:", videoRef.current);
+          //   console.log("FINDING ID: ", socketListId);
 
-            let videoExists = videoRef.current.find(
-              (video) => video.socketId === socketListId
-            );
+          //   let videoExists = videoRef.current.find(
+          //     (video) => video.socketId === socketListId
+          //   );
 
-            if (videoExists) {
-              console.log("FOUND EXISTING");
+          //   if (videoExists) {
+          //     console.log("FOUND EXISTING");
 
-              // Update the stream of the existing video
-              setVideos((videos) => {
-                const updatedVideos = videos.map((video) =>
-                  video.socketId === socketListId
-                    ? { ...video, stream: event.stream }
-                    : video
-                );
-                videoRef.current = updatedVideos;
-                return updatedVideos;
-              });
-            } else {
-              // Create a new video
-              console.log("CREATING NEW");
-              let newVideo = {
-                socketId: socketListId,
-                stream: event.stream,
-                autoplay: true,
-                playsinline: true,
-              };
+          //     // Update the stream of the existing video
+          //     setVideos((videos) => {
+          //       const updatedVideos = videos.map((video) =>
+          //         video.socketId === socketListId
+          //           ? { ...video, stream: event.stream }
+          //           : video
+          //       );
+          //       videoRef.current = updatedVideos;
+          //       return updatedVideos;
+          //     });
+          //   } else {
+          //     // Create a new video
+          //     console.log("CREATING NEW");
+          //     let newVideo = {
+          //       socketId: socketListId,
+          //       stream: event.stream,
+          //       autoplay: true,
+          //       playsinline: true,
+          //     };
 
-              setVideos((videos) => {
-                const updatedVideos = [...videos, newVideo];
-                videoRef.current = updatedVideos;
-                return updatedVideos;
-              });
-            }
-          };
+          //     setVideos((videos) => {
+          //       const updatedVideos = [...videos, newVideo];
+          //       videoRef.current = updatedVideos;
+          //       return updatedVideos;
+          //     });
+          //   }
+          // };
+          connections[socketListId].ontrack = (event) => {
+  let [stream] = event.streams;
+  let videoExists = videoRef.current.find(
+    (video) => video.socketId === socketListId
+  );
+
+  if (videoExists) {
+    setVideos((videos) =>
+      videos.map((video) =>
+        video.socketId === socketListId ? { ...video, stream } : video
+      )
+    );
+  } else {
+    let newVideo = {
+      socketId: socketListId,
+      stream,
+      autoplay: true,
+      playsinline: true,
+    };
+
+    setVideos((videos) => {
+      const updated = [...videos, newVideo];
+      videoRef.current = updated;
+      return updated;
+    });
+  }
+};
+
 
           // Add the local video stream
           if (window.localStream !== undefined && window.localStream !== null) {
