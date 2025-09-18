@@ -257,8 +257,7 @@ const { roomId } = useParams();
     //   console.log(e);
     // }
 
-    let getDislayMediaSuccess = (stream) => {
-  try {
+    try {
     if (window.localStream) {
       window.localStream.getTracks().forEach((track) => track.stop());
     }
