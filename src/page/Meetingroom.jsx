@@ -165,11 +165,13 @@ const { roomId } = useParams();
   };
 
   let getUserMediaSuccess = (stream) => {
-    try {
+     try {
+    if (window.localStream) {
       window.localStream.getTracks().forEach((track) => track.stop());
-    } catch (e) {
-      console.log(e);
     }
+  } catch (e) {
+    console.log("Error stopping old tracks:", e);
+  }
 
     window.localStream = stream;
     localVideoref.current.srcObject = stream;
@@ -249,11 +251,20 @@ const { roomId } = useParams();
 
   let getDislayMediaSuccess = (stream) => {
     console.log("HERE");
-    try {
+    // try {
+    //   window.localStream.getTracks().forEach((track) => track.stop());
+    // } catch (e) {
+    //   console.log(e);
+    // }
+
+    let getDislayMediaSuccess = (stream) => {
+  try {
+    if (window.localStream) {
       window.localStream.getTracks().forEach((track) => track.stop());
-    } catch (e) {
-      console.log(e);
     }
+  } catch (e) {
+    console.log("Error stopping old tracks:", e);
+  }
 
     window.localStream = stream;
     localVideoref.current.srcObject = stream;
