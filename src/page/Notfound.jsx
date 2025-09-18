@@ -44,6 +44,7 @@ const NotFound = () => {
             </div>
           </div>
         </main>
+        
       </div>
     </main>
   );
