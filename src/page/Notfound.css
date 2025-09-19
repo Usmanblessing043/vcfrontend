@@ -1,0 +1,89 @@
+/* Container with Sonic-inspired gradient */
+.notfound-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background: linear-gradient(135deg, #001f54, #004aad, #007fff, #00aaff);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Content wrapper */
+.notfound-content {
+  max-width: 600px;
+}
+
+/* Error text */
+.notfound-error {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffcc00; /* Sonic gold ring color */
+  margin-bottom: 10px;
+}
+
+/* Title */
+.notfound-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+/* Message */
+.notfound-message {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+/* Back to home link */
+.notfound-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.notfound-link:hover {
+  color: #ffffff;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .notfound-title {
+    font-size: 2rem;
+  }
+
+  .notfound-message {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notfound-title {
+    font-size: 1.6rem;
+  }
+
+  .notfound-message {
+    font-size: 0.85rem;
+  }
+
+  .notfound-link {
+    font-size: 1rem;
+  }
+}

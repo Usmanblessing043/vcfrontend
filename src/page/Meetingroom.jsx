@@ -511,7 +511,7 @@ const { roomId } = useParams();
     getUserMedia();
   };
   const copylink = async () => {
-    const link = `${server_url}/room/${roomId}`;
+    const link = `https://videoconference-phi.vercel.app/Meetingroom/${roomId}`;
     await navigator.clipboard.writeText(link);
     // alert("Invite link copied!");
     toast.success('Invite link copied!')
@@ -553,7 +553,7 @@ const { roomId } = useParams();
     if (socketIdSender !== socketIdRef.current) {
       setNewMessages((prevNewMessages) => prevNewMessages + 1);
     }
-  };
+  };``
 
   let sendMessage = () => {
     console.log(socketRef.current);
