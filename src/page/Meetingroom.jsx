@@ -553,7 +553,7 @@ const { roomId } = useParams();
     if (socketIdSender !== socketIdRef.current) {
       setNewMessages((prevNewMessages) => prevNewMessages + 1);
     }
-  };``
+  };
 
   let sendMessage = () => {
     console.log(socketRef.current);
