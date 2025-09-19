@@ -5,7 +5,7 @@
   justify-content: center;
   min-height: 100vh;
 
-  background: linear-gradient(135deg, #001f54, #004aad, #007fff, #00aaff);
+  background: linear-gradient(135deg, #0f1018, #1c1f2e, #1f2233, #12141d);
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
 

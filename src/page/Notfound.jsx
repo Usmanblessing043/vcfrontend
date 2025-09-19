@@ -7,7 +7,7 @@ const NotFound = () => {
     <main className="notfound-container">
       <div className="notfound-content">
         <p className="notfound-error">Error 404</p>
-        <h1 className="notfound-title">Page not found.</h1>
+        {/* <h1 className="notfound-title">Page not found.</h1> */}
         <p className="notfound-message">
           We are sorry, but this page does not exist.
         </p>
