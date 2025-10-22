@@ -19,6 +19,10 @@ const peerConfigConnections = {
   iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
 };
 
+const users = JSON.parse(localStorage.getItem("current_users"));
+const name = users?.username || "Guest";
+console.log(name);
+
 export default function MeetingRoom() {
   const socketRef = useRef();
   const socketIdRef = useRef();
@@ -36,7 +40,7 @@ export default function MeetingRoom() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [newMessages, setNewMessages] = useState(0);
-  const [username, setUsername] = useState("User");
+  const [username, setUsername] = useState(name);
   const videoRef = useRef([]);
   const [videos, setVideos] = useState([]);
 
