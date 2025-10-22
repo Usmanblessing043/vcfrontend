@@ -22,6 +22,7 @@ const peerConfigConnections = {
 const users = JSON.parse(localStorage.getItem("current_users"));
 const name = users?.username || "Guest";
 console.log(name);
+ const token = localStorage.getItem('token')
 
 export default function MeetingRoom() {
   const socketRef = useRef();
@@ -86,6 +87,18 @@ export default function MeetingRoom() {
       console.log(error);
     }
   };
+
+
+
+   
+   
+       useEffect(() => {
+    if (!token) {
+      navigate("/Login");
+      return;
+    }
+   
+  }, []);
 
   useEffect(() => {
     if (video !== undefined && audio !== undefined) {
