@@ -455,7 +455,7 @@ export default function MeetingRoom() {
       let tracks = localVideoref.current.srcObject.getTracks();
       tracks.forEach((track) => track.stop());
     } catch (e) {}
-    navigate("/");
+    navigate("/Dashboard");
   };
 
   const openChat = () => {

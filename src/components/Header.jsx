@@ -18,6 +18,11 @@ const Header = ({clas, second, first}) => {
 
     
     }
+    function logout() {
+       localStorage.removeItem('token')
+       localStorage.removeItem('current_users')
+       navigate('/Login')
+    }
 
   return (
     <div className="header">
@@ -36,7 +41,7 @@ const Header = ({clas, second, first}) => {
           <div className="but">
             <Button in ={signup}  text='Sign up' sty={first}></Button>
           <Button in = {login}  text='Login' sty={second}></Button>
-          <Button  text='Log out' sty={clas}></Button> 
+          <Button in={logout} text='Log out' sty={clas}></Button> 
 
           </div>
           
