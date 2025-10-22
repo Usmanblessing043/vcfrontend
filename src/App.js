@@ -16,6 +16,7 @@ import Signup from "./page/Signup";
 import Dashboard from "./page/Dashboard";
 import Meetingroom from "./page/Meetingroom";
 import { ToastContainer } from "react-toastify";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
-            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route path="/dashboard" element={<ProtectedRoute> <Dashboard></Dashboard> </ProtectedRoute>} />
             <Route path="/Meetingroom/:roomId" element={<Meetingroom/>} />
           </Routes>
           <ToastContainer></ToastContainer>

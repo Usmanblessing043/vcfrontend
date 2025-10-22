@@ -25,23 +25,23 @@ const Dashboard = () => {
   // const users = JSON.parse(localStorage.getItem('current_users'))
   // const name = users.username.toUpperCase()
 
-      useEffect(() => {
-    axios.get(`${backendUrl}/Verify`, {
-      headers: {
-        "Authorization": `bearer ${token}`
-      }
-    }).then((res) => {
-      console.log(res.data.user);
-      localStorage.setItem("current_users", JSON.stringify({ ...res.data.user, password: "" }))
-
-    }).catch((err) => {
-      console.log(err);
-      if (err.response.data.message == "jwt expired") {
-        navigate("/Login")
-      }
-
-    })
-  }, [])
+     useEffect(() => {
+  if (!token) {
+    navigate("/Login");
+    return;
+  }
+  
+  axios.get(`${backendUrl}/Verify`, {
+    headers: { Authorization: `bearer ${token}` },
+  })
+  .then((res) => {
+    localStorage.setItem("current_users", JSON.stringify({ ...res.data.user, password: "" }));
+  })
+  .catch((err) => {
+    console.log(err);
+    navigate("/Login");
+  });
+}, []);
 
   const months = [
     "January", "February", "March", "April", "May", "June",
