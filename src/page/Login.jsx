@@ -76,6 +76,10 @@ const Login = () => {
                     </div>
                     <small>{formik.touched.password && formik.errors.password}</small>
                     <br />
+                    <p className="login-link">
+  <Link className="link" to="/forgetpassword">Forgot Password?</Link>
+</p>
+
                     <p class="login-link">Don't have an account? <Link className='link' to={"/Signup"}>Sign up</Link></p>
                     <br />
                     <button className='bbt' disabled = {loading} type="submit">{loading ? "loading...." : 'Login'}</button>

@@ -17,6 +17,10 @@ import Dashboard from "./page/Dashboard";
 import Meetingroom from "./page/Meetingroom";
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ForgotPassword from "./components/Forgetpassword";
+import ResetPassword from "./components/Resetpassword";
+
+
 
 
 const App = () => {
@@ -31,6 +35,9 @@ const App = () => {
             <Route path="/signup" element={<Signup/>} />
             <Route path="/dashboard" element={<ProtectedRoute> <Dashboard></Dashboard> </ProtectedRoute>} />
             <Route path="/Meetingroom/:roomId" element={<Meetingroom/>} />
+            <Route path="/forgetpassword" element={<ForgotPassword></ForgotPassword>} />
+            <Route path="/resetpassword/:token" element={<ResetPassword />} />
+
           </Routes>
           <ToastContainer></ToastContainer>
          </div>
