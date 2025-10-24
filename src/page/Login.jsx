@@ -75,11 +75,12 @@ const Login = () => {
                         <input onBlur={formik.handleBlur} placeholder='Password' name='password' onChange={formik.handleChange} value={formik.values.password} type="password" />
                     </div>
                     <small>{formik.touched.password && formik.errors.password}</small>
-                    <br />
-                    <p className="login-link">
+                    <p  className="login-link" style={{marginLeft:"180px"}} >
   <Link className="link" to="/forgetpassword">Forgot Password?</Link>
 </p>
 
+                    <br />
+                    
                     <p class="login-link">Don't have an account? <Link className='link' to={"/Signup"}>Sign up</Link></p>
                     <br />
                     <button className='bbt' disabled = {loading} type="submit">{loading ? "loading...." : 'Login'}</button>

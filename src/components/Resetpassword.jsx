@@ -30,10 +30,11 @@ const ResetPassword = () => {
   return (
     <div className="signup">
       <div className="signupcontainer">
-        <h1>Set a new password</h1>
+        <h1 id="re">Set a new password</h1>
+        <br />
         <form onSubmit={handleSubmit}>
           <div className="lab">
-            <label>New Password</label>
+            {/* <label>New Password</label> */}
             <input
               type="password"
               placeholder="Enter new password"

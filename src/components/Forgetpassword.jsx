@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "./Forgetpassword.css"
 
 const backendUrl = process.env.REACT_APP_VIDEOBACKEND_URL;
 
@@ -26,10 +27,11 @@ const ForgotPassword = () => {
   return (
     <div className="signup">
       <div className="signupcontainer">
-        <h1>Reset your password</h1>
+        <h1 id="re"> Reset your password</h1>
+        <br />
         <form onSubmit={handleSubmit}>
           <div className="lab">
-            <label>Email</label>
+            {/* <label>Email</label> */}
             <input
               type="email"
               placeholder="Enter your registered email"
