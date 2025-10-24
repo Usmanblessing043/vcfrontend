@@ -16,8 +16,24 @@ const server_url = process.env.REACT_APP_VIDEOBACKEND_URL;
 
 var connections = {};
 const peerConfigConnections = {
-  iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+  iceServers: [
+    {
+      urls: [
+        "stun:stun.l.google.com:19302",
+        "stun:stun1.l.google.com:19302",
+        "stun:stun2.l.google.com:19302",
+        "stun:stun3.l.google.com:19302",
+        "stun:stun4.l.google.com:19302"
+      ],
+    },
+    {
+      urls: "turn:relay1.expressturn.com:3478",
+      username: "efree",
+      credential: "efree",
+    },
+  ],
 };
+;
 
 const users = JSON.parse(localStorage.getItem("current_users"));
 const name = users?.username || "Guest";
