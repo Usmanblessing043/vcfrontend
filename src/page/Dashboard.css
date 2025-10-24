@@ -21,3 +21,71 @@
   border: 2px solid #facc15;
   color: #facc15;
 }
+
+
+.join-room-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.join-room-box {
+  background: transparent;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border: gray 1px solid;
+}
+
+.join-room-box h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: wheat;
+}
+
+.join-room-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.join-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.join-actions button {
+ 
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
+  text-align: center;
+  width: 100px;
+}
+
+
+
+.join-actions button:last-child {
+  background:#007bff;
+  color: white;
+  text-align: center;
+}

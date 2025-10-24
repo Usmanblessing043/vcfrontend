@@ -22,7 +22,7 @@ const peerConfigConnections = {
 const users = JSON.parse(localStorage.getItem("current_users"));
 const name = users?.username || "Guest";
 console.log(name);
- const token = localStorage.getItem('token')
+const token = localStorage.getItem('token')
 
 export default function MeetingRoom() {
   const socketRef = useRef();
@@ -44,6 +44,14 @@ export default function MeetingRoom() {
   const [username, setUsername] = useState(name);
   const videoRef = useRef([]);
   const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/Login");
+      return;
+    }
+   
+  }, []);
 
   useEffect(() => {
     getPermissions();
@@ -92,13 +100,7 @@ export default function MeetingRoom() {
 
    
    
-       useEffect(() => {
-    if (!token) {
-      navigate("/Login");
-      return;
-    }
    
-  }, []);
 
   useEffect(() => {
     if (video !== undefined && audio !== undefined) {
@@ -366,9 +368,37 @@ export default function MeetingRoom() {
           };
 
           if (window.localStream !== undefined && window.localStream !== null) {
-            window.localStream.getTracks().forEach((track) => {
-              connections[socketListId].addTrack(track, window.localStream);
-            });
+            // window.localStream.getTracks().forEach((track) => {
+            //   connections[socketListId].addTrack(track, window.localStream);
+            // });
+            if (window.localStream) {
+  const stream = window.localStream;
+
+  // ✅ If addTrack exists, use it
+  if (connections[socketListId].addTrack) {
+    stream.getTracks().forEach((track) => {
+      connections[socketListId].addTrack(track, stream);
+    });
+
+  // 🧩 Fallback for older Android browsers
+  } else if (connections[socketListId].addStream) {
+    connections[socketListId].addStream(stream);
+  }
+
+} else {
+  // create a silent black stream if user has no media
+  const blackSilence = (...args) => new MediaStream([black(...args), silence()]);
+  const stream = (window.localStream = blackSilence());
+
+  if (connections[socketListId].addTrack) {
+    stream.getTracks().forEach((track) => {
+      connections[socketListId].addTrack(track, stream);
+    });
+  } else if (connections[socketListId].addStream) {
+    connections[socketListId].addStream(stream);
+  }
+}
+
           } else {
             let blackSilence = (...args) =>
               new MediaStream([black(...args), silence()]);
