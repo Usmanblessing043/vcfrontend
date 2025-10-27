@@ -1,5 +1,6 @@
 import React from 'react'
 import './Signup.css'
+import logo from '../images/logo.png'
 
 import { useFormik } from 'formik'
 import * as yup from "yup"
@@ -63,6 +64,11 @@ const Signup = () => {
                 {/* <source src={bagvideo} type="video/mp4" /> */}
             </video>
             <div className="signupcontainer">
+                <div className="sidebar-logo">
+                        <Link to="/">
+                          <img src={logo} alt="logo" />
+                        </Link>
+                      </div>
                 <h1>Sign up for Video Conference</h1>
                 <br />
                 <form action="" onSubmit={formik.handleSubmit}>

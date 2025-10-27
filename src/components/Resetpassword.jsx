@@ -4,6 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Forgetpassword.css";
+import logo from '../images/logo.png';
+import { Link } from "react-router-dom";
 
 const backendUrl = process.env.REACT_APP_VIDEOBACKEND_URL;
 
@@ -39,7 +41,14 @@ const ResetPassword = () => {
   return (
     <div className="signup">
       <div className="signupcontainer">
+        <div className="sidebar-logo">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
         <h1 id="re">Set a new password</h1>
+        <h1 id="re">for</h1>
+        <h1 id="re">  Video Conference</h1>
         <br />
         <form onSubmit={handleSubmit}>
           <div className="lab" style={{ position: "relative" }}>

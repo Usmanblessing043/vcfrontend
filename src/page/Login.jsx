@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { FaEye, FaEyeSlash } from "react-icons/fa"
+import logo from '../images/logo.png'
 
 const backendUrl = process.env.REACT_APP_VIDEOBACKEND_URL
 
@@ -45,6 +46,11 @@ const Login = () => {
     <div className='signup'>
       <video autoPlay loop muted playsInline className='bg-video'></video>
       <div className="signupcontainer">
+        <div className="sidebar-logo">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
         <h1>Login for Video Conference</h1>
         <br />
         <form onSubmit={formik.handleSubmit}>
