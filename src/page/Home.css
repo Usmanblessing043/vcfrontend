@@ -152,3 +152,11 @@ html, body {
   color: white;
   font-weight: 700;
 }
+@media (max-width: 510px) {
+  .first{
+    width: 80px;
+  }
+  .second{
+    width: 80px;
+  }
+}
