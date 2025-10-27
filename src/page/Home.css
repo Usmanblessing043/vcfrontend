@@ -155,8 +155,10 @@ html, body {
 @media (max-width: 510px) {
   .first{
     width: 80px;
+    font-size: 10px;
   }
   .second{
     width: 80px;
+    font-size: 10px;
   }
 }
