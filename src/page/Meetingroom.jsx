@@ -11,6 +11,7 @@ import { MdScreenShare as ScreenShareIcon } from "react-icons/md";
 import { AiOutlineShareAlt as StopScreenShareIcon } from "react-icons/ai";
 import { IoChatboxOutline as ChatIcon } from "react-icons/io5";
 import './Meetingroom.css';
+import { toast } from "react-toastify";
 
 const server_url = process.env.REACT_APP_VIDEOBACKEND_URL;
 
@@ -485,7 +486,8 @@ export default function MeetingRoom() {
   const copylink = async () => {
     const link = `${window.location.origin}/meeting/${roomId}`;
     await navigator.clipboard.writeText(link);
-    alert("Invite link copied!");
+    // alert("Invite link copied!");
+    toast.success("Invite link copied!");
   };
 
   useEffect(() => {
@@ -551,15 +553,26 @@ export default function MeetingRoom() {
             <h1>Chat</h1>
             <div className="chatting-display">
               {messages.length !== 0 ? (
-                messages.map((item, index) => (
-                  <div key={index} className="message-item">
-                    <p className="message-sender">{item.sender}</p>
-                    <p className="message-data">{item.data}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No Messages Yet</p>
-              )}
+  messages.map((item, index) => {
+    const isSender = item.sender === username;
+    return (
+      <div
+        key={index}
+        className={`message-item ${isSender ? "my-message" : "other-message"}`}
+      >
+        <p className="message-sender">
+          {isSender ? "You" : item.sender}
+        </p>
+        <div className="message-bubble">
+          {item.data}
+        </div>
+      </div>
+    );
+  })
+) : (
+  <p className="no-messages">No Messages Yet</p>
+)}
+
             </div>
             <div className="chatting-area">
               <input
