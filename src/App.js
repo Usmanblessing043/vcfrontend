@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Routes, Route } from "react-router-dom";
+import './App.css';
+
 
 // components
 // import Header from "./Header";
@@ -39,7 +41,20 @@ const App = () => {
             <Route path="/resetpassword/:token" element={<ResetPassword />} />
 
           </Routes>
-          <ToastContainer></ToastContainer>
+          <ToastContainer
+  position="top-center"
+  autoClose={3000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  toastClassName="custom-toast"
+  bodyClassName="custom-toast-body"
+/>
+
          </div>
            
         
