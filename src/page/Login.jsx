@@ -109,9 +109,19 @@ const Login = () => {
             Don't have an account? <Link className='link' to={"/Signup"}>Sign up</Link>
           </p>
           <br />
+          {/* <button className='bbt' disabled={loading} type="submit">
+            {loading ? "Loading " : 'Login'}
+          </button> */}
           <button className='bbt' disabled={loading} type="submit">
-            {loading ? "Loading..." : 'Login'}
-          </button>
+  {loading ? (
+    <>
+      Loading <i className="fa-solid fa-spinner fa-spin-pulse"  style={{ color:'white' }}></i>
+    </>
+  ) : (
+    'Login'
+  )}
+</button>
+
         </form>
       </div>
     </div>

@@ -65,10 +65,10 @@ const Signup = () => {
             </video>
             <div className="signupcontainer">
                 <div className="sidebar-logo">
-                        <Link to="/">
-                          <img src={logo} alt="logo" />
-                        </Link>
-                      </div>
+                    <Link to="/">
+                        <img src={logo} alt="logo" />
+                    </Link>
+                </div>
                 <h1>Sign up for Video Conference</h1>
                 <br />
                 <form action="" onSubmit={formik.handleSubmit}>
@@ -119,7 +119,16 @@ const Signup = () => {
                     <br />
                     <p class="login-link">Already have an account? <Link className='link' to={"/Login"}>Login</Link></p>
                     <br />
-                    <button disabled={loading} type="submit">{loading ? "loading....." : 'Create account'}</button>
+                    {/* <button disabled={loading} type="submit">{loading ? "loading....." : 'Create account'}</button> */}
+                    <button className='bbt' disabled={loading} type="submit">
+                        {loading ? (
+                            <>
+                                Loading <i className="fa-solid fa-spinner fa-spin-pulse" style={{ color: 'white' }}></i>
+                            </>
+                        ) : (
+                            'Login'
+                        )}
+                    </button>
                 </form>
             </div>
 
