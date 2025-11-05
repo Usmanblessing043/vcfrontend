@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import logo from '../images/logo.png';
 
 import { AiOutlineLogout as LogOutIcon } from "react-icons/ai";
 import "./Header.css"; // Import external CSS
@@ -27,6 +28,11 @@ const Header = ({clas, second, first}) => {
   return (
     <div className="header">
       {/* App Title */}
+      <div className="sidebar-logoo">
+              <Link to="/">
+                <img src={logo} alt="logo" />
+              </Link>
+            </div>
       <Link to="/" className="header-title">
         Video Conference
       </Link>

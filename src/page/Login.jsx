@@ -47,10 +47,10 @@ const Login = () => {
       <video autoPlay loop muted playsInline className='bg-video'></video>
       <div className="signupcontainer">
         <div className="sidebar-logo">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+        </div>
         <h1>Login for Video Conference</h1>
         <br />
         <form onSubmit={formik.handleSubmit}>
@@ -69,7 +69,7 @@ const Login = () => {
 
           <div className="lab" style={{ position: 'relative' }}>
             <label>Password</label><br />
-            <div style={{ position: 'relative'}}>
+            <div style={{ position: 'relative' }}>
               <input
                 onBlur={formik.handleBlur}
                 placeholder='Password'
@@ -91,7 +91,7 @@ const Login = () => {
                   fontSize: '1.2rem',
                   display: 'flex',
                   alignItems: 'center',
-                  
+
                 }}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -112,15 +112,15 @@ const Login = () => {
           {/* <button className='bbt' disabled={loading} type="submit">
             {loading ? "Loading " : 'Login'}
           </button> */}
-          <button className='bbt' disabled={loading} type="submit">
-  {loading ? (
-    <>
-      Loading <i className="fa-solid fa-spinner fa-spin-pulse"  style={{ color:'white' }}></i>
-    </>
-  ) : (
-    'Login'
-  )}
-</button>
+         <button className='bbt' disabled={loading} type="submit">
+            {loading ? (
+              <>
+                Loading <i className="fa-solid fa-spinner fa-spin-pulse" style={{ color: 'white' }}></i>
+              </> 
+            ) : (
+              'Login'
+            )}
+          </button>
 
         </form>
       </div>

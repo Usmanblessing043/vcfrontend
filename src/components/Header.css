@@ -24,9 +24,7 @@
   transition: color 0.2s ease-in-out;
 }
 
-.header-title:hover {
-  color: #0d78f8; /* blue highlight */
-}
+
 
 /* Login button */
 .first, .second {
@@ -91,4 +89,23 @@
 .but{
   display: flex;
   gap: 5px;
+}
+.sidebar-logoo{
+  display: none;
+}
+@media (max-width: 583px) {
+  .sidebar-logoo{
+    display: block;
+  }
+  .sidebar-logoo img{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    margin-right: 3px;
+  }
+  .header-title{
+    font-size: 15px;
+    width: 80px;
+    /* text-align: center; */
+  }
 }

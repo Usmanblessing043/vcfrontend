@@ -20,9 +20,9 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.sidebar-logo img:hover {
+/* .sidebar-logo img:hover {
   transform: scale(1.1);
-}
+} */
 
 /* Menu */
 .sidebar-menu {
@@ -46,7 +46,7 @@
   border-radius: 10px;
   color: #cbd5e1; /* slate-300 */
   background-color: #242736; /* lightGray */
-  transition: all 0.2s ease-in-out;
+  /* transition: all 0.2s ease-in-out; */
   cursor: pointer;
   text-decoration: none;
 }
@@ -100,4 +100,14 @@
   background-color: #2e323e;
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 583px) {
+  .sidebar{
+    width: auto;
+  }
+  .sidebar-logo img {
+  height: 30px;
+  width: 30px;
+  
+}
 }
