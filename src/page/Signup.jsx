@@ -126,7 +126,7 @@ const Signup = () => {
                                 Loading <i className="fa-solid fa-spinner fa-spin-pulse" style={{ color: 'white' }}></i>
                             </>
                         ) : (
-                            'Login'
+                            'Sign up'
                         )}
                     </button>
                 </form>
