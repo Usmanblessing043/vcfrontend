@@ -67,7 +67,7 @@ export default function MeetingRoom() {
       navigate("/Login");
       return;
     }
-   
+
   }, []);
 
   useEffect(() => {
@@ -115,9 +115,9 @@ export default function MeetingRoom() {
 
 
 
-   
-   
-   
+
+
+
 
   useEffect(() => {
     if (video !== undefined && audio !== undefined) {
@@ -141,7 +141,7 @@ export default function MeetingRoom() {
       try {
         let tracks = localVideoref.current.srcObject.getTracks();
         tracks.forEach((track) => track.stop());
-      } catch (e) {}
+      } catch (e) { }
     }
   };
 
@@ -389,32 +389,32 @@ export default function MeetingRoom() {
             //   connections[socketListId].addTrack(track, window.localStream);
             // });
             if (window.localStream) {
-  const stream = window.localStream;
+              const stream = window.localStream;
 
-  // ✅ If addTrack exists, use it
-  if (connections[socketListId].addTrack) {
-    stream.getTracks().forEach((track) => {
-      connections[socketListId].addTrack(track, stream);
-    });
+              //  If addTrack exists, use it
+              if (connections[socketListId].addTrack) {
+                stream.getTracks().forEach((track) => {
+                  connections[socketListId].addTrack(track, stream);
+                });
 
-  // 🧩 Fallback for older Android browsers
-  } else if (connections[socketListId].addStream) {
-    connections[socketListId].addStream(stream);
-  }
+                //  Fallback for older Android browsers
+              } else if (connections[socketListId].addStream) {
+                connections[socketListId].addStream(stream);
+              }
 
-} else {
-  // create a silent black stream if user has no media
-  const blackSilence = (...args) => new MediaStream([black(...args), silence()]);
-  const stream = (window.localStream = blackSilence());
+            } else {
+              // create a silent black stream if user has no media
+              const blackSilence = (...args) => new MediaStream([black(...args), silence()]);
+              const stream = (window.localStream = blackSilence());
 
-  if (connections[socketListId].addTrack) {
-    stream.getTracks().forEach((track) => {
-      connections[socketListId].addTrack(track, stream);
-    });
-  } else if (connections[socketListId].addStream) {
-    connections[socketListId].addStream(stream);
-  }
-}
+              if (connections[socketListId].addTrack) {
+                stream.getTracks().forEach((track) => {
+                  connections[socketListId].addTrack(track, stream);
+                });
+              } else if (connections[socketListId].addStream) {
+                connections[socketListId].addStream(stream);
+              }
+            }
 
           } else {
             let blackSilence = (...args) =>
@@ -515,7 +515,7 @@ export default function MeetingRoom() {
     try {
       let tracks = localVideoref.current.srcObject.getTracks();
       tracks.forEach((track) => track.stop());
-    } catch (e) {}
+    } catch (e) { }
     navigate("/Dashboard");
   };
 
@@ -553,25 +553,25 @@ export default function MeetingRoom() {
             <h1>Chat</h1>
             <div className="chatting-display">
               {messages.length !== 0 ? (
-  messages.map((item, index) => {
-    const isSender = item.sender === username;
-    return (
-      <div
-        key={index}
-        className={`message-item ${isSender ? "my-message" : "other-message"}`}
-      >
-        <p className="message-sender">
-          {isSender ? "You" : item.sender}
-        </p>
-        <div className="message-bubble">
-          {item.data}
-        </div>
-      </div>
-    );
-  })
-) : (
-  <p className="no-messages">No Messages Yet</p>
-)}
+                messages.map((item, index) => {
+                  const isSender = item.sender === username;
+                  return (
+                    <div
+                      key={index}
+                      className={`message-item ${isSender ? "my-message" : "other-message"}`}
+                    >
+                      <p className="message-sender">
+                        {isSender ? "You" : item.sender}
+                      </p>
+                      <div className="message-bubble">
+                        {item.data}
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="no-messages">No Messages Yet</p>
+              )}
 
             </div>
             <div className="chatting-area">

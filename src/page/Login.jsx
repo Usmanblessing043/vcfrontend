@@ -34,7 +34,7 @@ const Login = () => {
           resetForm()
           setLoading(false)
         })
-        .catch((err) => {
+        .catch((err) => { 
           toast.error(err.response?.data?.message || "Login failed")
           resetForm()
           setLoading(false)
