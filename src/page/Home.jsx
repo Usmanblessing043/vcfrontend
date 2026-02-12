@@ -9,6 +9,8 @@ import a3 from '../images/a3.png';
 import a4 from '../images/a4.png';
 import a5 from '../images/a5.png';
 import a6 from '../images/a6.png';
+import sec from '../images/sec.png';
+import sec1 from '../images/sec1.png';
 
 import { v4 as uuid } from "uuid";
 
@@ -225,14 +227,14 @@ const Home = () => {
     </div>
     <div className="feature-card">
       <div className="icon-wrapper">
-        <img src={a6} alt="Screen Sharing" />
+        <img src={sec} alt="Screen Sharing" />
       </div>
       <h3>Screen Sharing</h3>
       <p>Share your screen effortlessly during meetings or presentations.</p>
     </div>
     <div className="feature-card">
       <div className="icon-wrapper">
-        <img src={a1} alt="Secure & Private" />
+        <img src={sec1} alt="Secure & Private" />
       </div>
       <h3>Secure & Private</h3>
       <p>End-to-end encryption to keep your meetings safe and private.</p>
